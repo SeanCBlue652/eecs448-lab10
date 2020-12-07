@@ -24,7 +24,7 @@ if ($result = $mysqli->query($query)) {
         $userExists = true;
  }
  else {
-     echo "not here";
+     printf("not here");
  }
 }
  
