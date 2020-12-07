@@ -32,12 +32,12 @@ if ($result = $mysqli->query($query)) {
 return($userExists);
 }
 
-
+$userExists = checkForUser();
 
 if ($userpost == "" || $userpost == null) {
     echo "Post cannot be blank.\n";
 } else {
-    if (checkForUser()) {
+    if ($userExists) {
         $insertString = "INSERT INTO Posts (author_id, content) VALUES ('{$username}', '{$userpost}')";
             if ($mysqli->query($insertString)) {
                 echo "Post {$userpost} has been successfully added for the user: {$username}.\n";
