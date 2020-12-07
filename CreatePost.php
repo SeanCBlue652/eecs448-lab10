@@ -22,7 +22,7 @@ if ($result = $mysqli->query($query)) {
  /* fetch associative array */
 
  while ($row = $result->fetch_assoc()) {
-     $resultset .= $row["user_id"]."\n";
+     $resultset = $resultset.$row["user_id"]."\n";
  if ($row["user_id"] == $username) {
         $userExists = true;
  }
