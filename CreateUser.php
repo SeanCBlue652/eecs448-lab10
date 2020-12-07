@@ -12,7 +12,7 @@ if ($mysqli->connect_errno) {
 
 $userExists = false;
 
-$query = "SELECT {$username} FROM Users";
+$query = "SELECT * FROM Users";
 if ($result = $mysqli->query($query)) {
  /* fetch associative array */
  while ($row = $result->fetch_assoc()) {

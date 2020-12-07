@@ -17,7 +17,7 @@ if ($mysqli->connect_errno) {
 
 function checkForUser($mysqli, $userExists, $results) {
     $userExists = false;
-    $query = "SELECT {$username} FROM Users";
+    $query = "SELECT * FROM Users";
 if ($result = $mysqli->query($query)) {
  /* fetch associative array */
 
