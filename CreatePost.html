@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <form action='CreatePost.php' method='post' onsubmit="return checkForm();">
+            <h3>Username:</h3>
+            <input name="username" id="username" type="text"></input>
+            <h3>Post:</h3>
+            <input name="input" id="input" type="text"></input>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+    <script>
+        function checkForm() {
+            let input = document.getElementById("username").value;
+            if (input == "" || input == null) {
+                alert("Username cannot be blank.");
+                return(false);
+            }
+            return(true);
+        }
+    </script>
+</html>
