@@ -20,7 +20,6 @@ if ($result = $mysqli->query($query)) {
  while ($row = $result->fetch_assoc()) {
  if ($row["user_id"] == $username) {
         global $userExists;
-        echo "That user exists";
         $userExists = true;
  break;
  }
@@ -33,6 +32,8 @@ if ($result = $mysqli->query($query)) {
 if ($userpost == "" || $userpost == null) {
     echo "Post cannot be blank.\n";
 }
+
+echo $userExists;
 
 if (!($userExists)) {
     echo "Post cannot be created for the user {$username} because that user does not exist.\n";  
