@@ -33,7 +33,7 @@ if ($userpost == "" || $userpost == null) {
     echo "Post cannot be blank.\n";
 }
 
-echo $userExists;
+echo "{$userExists}";
 
 if (!($userExists)) {
     echo "Post cannot be created for the user {$username} because that user does not exist.\n";  
