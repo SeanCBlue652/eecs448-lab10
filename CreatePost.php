@@ -13,10 +13,11 @@ if ($mysqli->connect_errno) {
 
 $userExists = false;
 
+echo "it's still working";
 $query = "SELECT {$username} FROM Users";
 if ($result = $mysqli->query($query)) {
  /* fetch associative array */
- echo "it's still working";
+
  while ($row = $result->fetch_assoc()) {
  if ($row["user_id"] == $username) {
         $insertString = "INSERT INTO Posts (author_id, content) VALUES ('{$username}', '{$userpost}')";
