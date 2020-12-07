@@ -13,7 +13,6 @@ if ($mysqli->connect_errno) {
 
 $userExists = false;
 
-echo "it's still working";
 $query = "SELECT {$username} FROM Users";
 if ($result = $mysqli->query($query)) {
  /* fetch associative array */
@@ -23,10 +22,8 @@ if ($result = $mysqli->query($query)) {
         $insertString = "INSERT INTO Posts (author_id, content) VALUES ('{$username}', '{$userpost}')";
         if ($mysqli->query($insertString)) {
             echo "Post {$userpost} has been successfully added for the user: {$username}.\n";
-            $result->free();
         } else {
             echo "Error creating post: ", $mysqli->error, "\n";
-            $result->free();
         }
  }
  if (!($userExists)) {
