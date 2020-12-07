@@ -32,7 +32,7 @@ if ($result = $mysqli->query($query)) {
 return($userExists);
 }
 
-$userExists = checkForUser();
+$userExists = false;//checkForUser();
 
 if ($userpost == "" || $userpost == null) {
     echo "Post cannot be blank.\n";
