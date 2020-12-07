@@ -25,8 +25,8 @@ if ($result = $mysqli->query($query)) {
  
  /* free result set */
  $result->free();
- return($userExists);
 }
+return($userExists);
 }
 
 
