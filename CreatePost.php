@@ -34,7 +34,7 @@ if ($userpost == "" || $userpost == null) {
 
 
 if (!($userExists)) {
-    echo " {$userExists} Post cannot be created for the user {$username} because that user does not exist.\n";  
+    echo "Post cannot be created for the user {$username} because that user does not exist. testing testing";  
  }
 else {
     $insertString = "INSERT INTO Posts (author_id, content) VALUES ('{$username}', '{$userpost}')";
