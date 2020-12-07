@@ -21,11 +21,11 @@ if ($result = $mysqli->query($query)) {
  if ($row["user_id"] == $username) {
         $userExists = true;
  }
+}
  
  /* free result set */
  $result->free();
  return($userExists);
-}
 }
 }
 
