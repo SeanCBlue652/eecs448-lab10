@@ -36,7 +36,7 @@ if ($result = $mysqli->query($query)) {
 }
 }
 
-checkForUser($mysqli, $userExists);
+checkForUser($mysqli, $userExists, $resultset);
 
 if ($userpost == "" || $userpost == null) {
     echo "Post cannot be blank.\n";
@@ -51,7 +51,7 @@ if ($userpost == "" || $userpost == null) {
         
      }
     else {
-        echo "Post cannot be created for the user {$username} because that user does not exist. Results: {$resultset}";  
+        echo "Post cannot be created for the user {$username} because that user does not exist. Existing users: {$resultset}";  
     }
 }
 
