@@ -26,7 +26,6 @@ if ($result = $mysqli->query($query)) {
             echo "Error creating post: ", $mysqli->error, "\n";
             $result->free();
         }
- break;
  }
  if (!($userExists)) {
     echo "Post cannot be created for the user {$username} because that user does not exist.\n";  
