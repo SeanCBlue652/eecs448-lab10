@@ -21,6 +21,9 @@ if ($result = $mysqli->query($query)) {
  if ($row["user_id"] == $username) {
         $userExists = true;
  }
+ else {
+     echo "not here";
+ }
 }
  
  /* free result set */
