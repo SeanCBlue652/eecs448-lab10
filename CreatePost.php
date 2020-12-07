@@ -19,17 +19,10 @@ if ($result = $mysqli->query($query)) {
 
  while ($row = $result->fetch_assoc()) {
  if ($row["user_id"] == $username) {
-        $insertString = "INSERT INTO Posts (author_id, content) VALUES ('{$username}', '{$userpost}')";
-        if ($mysqli->query($insertString)) {
-            echo "Post {$userpost} has been successfully added for the user: {$username}.\n";
-        } else {
-            echo "Error creating post: ", $mysqli->error, "\n";
-        }
+        $userExists = true;
+ break;
  }
- if (!($userExists)) {
-    echo "Post cannot be created for the user {$username} because that user does not exist.\n";  
- }
- }
+ 
  /* free result set */
  $result->free();
 }
@@ -37,6 +30,19 @@ if ($result = $mysqli->query($query)) {
 if ($userpost == "" || $userpost == null) {
     echo "Post cannot be blank.\n";
 }
+
+if (!($userExists)) {
+    echo "Post cannot be created for the user {$username} because that user does not exist.\n";  
+ }
+else {
+    $insertString = "INSERT INTO Posts (author_id, content) VALUES ('{$username}', '{$userpost}')";
+        if ($mysqli->query($insertString)) {
+            echo "Post {$userpost} has been successfully added for the user: {$username}.\n";
+        } else {
+            echo "Error creating post: ", $mysqli->error, "\n";
+        }
+}
+
 
 
 
