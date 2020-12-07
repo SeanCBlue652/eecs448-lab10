@@ -23,11 +23,8 @@ if ($result = $mysqli->query($query)) {
 
  while ($row = $result->fetch_assoc()) {
      $resultset = $resultset.$row["user_id"]."\n";
- if (strcmp($row["user_id"], $username) === 0) {
+ if (strcmp(trim($row["user_id"]), trim($username)) == 0) {
         $userExists = true;
- }
- else {
-     printf($row["user_id"]."\n");
  }
 }
  
