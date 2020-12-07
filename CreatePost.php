@@ -28,7 +28,7 @@ if ($result = $mysqli->query($query)) {
         }
  break;
  }
- if ($userExists == false) {
+ if (!($userExists)) {
     echo "Post cannot be created for the user {$username} because that user does not exist.\n";  
  }
  }
@@ -38,8 +38,6 @@ if ($result = $mysqli->query($query)) {
 
 if ($userpost == "" || $userpost == null) {
     echo "Post cannot be blank.\n";
-} else {
-    
 }
 
 
