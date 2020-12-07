@@ -28,6 +28,7 @@ if ($result = $mysqli->query($query)) {
 if ($userExists) {
     echo "User {$username} cannot be created because they already exist.\n";
 } else {
+    echo "Creating user {$username}\n";
     $insertString = "INSERT INTO Users (user_id) VALUES ({$username})";
     if ($mysqli->query($insertString)) {
         echo "User {$username} has been successfully created.\n";
