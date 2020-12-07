@@ -12,19 +12,19 @@ if ($mysqli->connect_errno) {
 }
 
 function checkForUser() {
+    $userExists = false;
     $query = "SELECT {$username} FROM Users";
 if ($result = $mysqli->query($query)) {
  /* fetch associative array */
 
  while ($row = $result->fetch_assoc()) {
  if ($row["user_id"] == $username) {
-        $result->free();
-        return(true);
+        $userExists = true;
  }
  
  /* free result set */
  $result->free();
- return(false);
+ return($userExists);
 }
 }
 }
@@ -36,16 +36,17 @@ if ($userpost == "" || $userpost == null) {
 }
 
 
-if (checkForUser() == false) {
-    echo "Post cannot be created for the user {$username} because that user does not exist.";  
- }
-else {
+if (checkForUser()) {
     $insertString = "INSERT INTO Posts (author_id, content) VALUES ('{$username}', '{$userpost}')";
         if ($mysqli->query($insertString)) {
             echo "Post {$userpost} has been successfully added for the user: {$username}.\n";
         } else {
             echo "Error creating post: ", $mysqli->error, "\n";
         }
+    
+ }
+else {
+    echo "Post cannot be created for the user {$username} because that user does not exist.";  
 }
 
 
