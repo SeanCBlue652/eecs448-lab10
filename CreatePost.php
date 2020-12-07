@@ -19,6 +19,7 @@ if ($result = $mysqli->query($query)) {
 
  while ($row = $result->fetch_assoc()) {
  if ($row["user_id"] == $username) {
+        echo "That user exists";
         $userExists = true;
  break;
  }
