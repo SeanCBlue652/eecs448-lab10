@@ -2,6 +2,7 @@
 
 $username = $_POST["username"];
 $userpost = $_POST["input"];
+$userExists = false;
 
 $mysqli = new mysqli("mysql.eecs.ku.edu", "seancunningha", "fohNuph4",
 "seancunningha");
@@ -10,8 +11,6 @@ if ($mysqli->connect_errno) {
  printf("Connect failed: %s\n", $mysqli->connect_error);
  exit();
 }
-
-$userExists = false;
 
 $query = "SELECT {$username} FROM Users";
 if ($result = $mysqli->query($query)) {
