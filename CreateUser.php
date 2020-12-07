@@ -17,6 +17,7 @@ if ($result = $mysqli->query($query)) {
  /* fetch associative array */
  while ($row = $result->fetch_assoc()) {
  if ($row["user_id"] == $username) {
+     global $userExists;
      $userExists = true;
  break;
  }
