@@ -12,6 +12,7 @@ if ($mysqli->connect_errno) {
 }
 
 function checkForUser() {
+    global $mysqli;
     $userExists = false;
     $query = "SELECT {$username} FROM Users";
 if ($result = $mysqli->query($query)) {
@@ -32,7 +33,7 @@ if ($result = $mysqli->query($query)) {
 return($userExists);
 }
 
-$userExists = false;//checkForUser();
+$userExists = checkForUser();
 
 if ($userpost == "" || $userpost == null) {
     echo "Post cannot be blank.\n";
