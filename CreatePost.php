@@ -18,9 +18,7 @@ if ($result = $mysqli->query($query)) {
 
  while ($row = $result->fetch_assoc()) {
  if ($row["user_id"] == $username) {
-        global $userExists;
-        $userExists = true;
- break;
+        $GLOBALS['userExists'] = true;
  }
  
  /* free result set */
@@ -33,17 +31,17 @@ if ($userpost == "" || $userpost == null) {
 }
 
 
-//if (!($userExists)) {
-//    echo "Post cannot be created for the user {$username} because that user does not exist. testing testing";  
-// }
-//else {
+if (!($userExists)) {
+    echo "Post cannot be created for the user {$username} because that user does not exist. testing testing";  
+ }
+else {
     $insertString = "INSERT INTO Posts (author_id, content) VALUES ('{$username}', '{$userpost}')";
         if ($mysqli->query($insertString)) {
             echo "Post {$userpost} has been successfully added for the user: {$username}.\n";
         } else {
             echo "Error creating post: ", $mysqli->error, "\n";
         }
-//}
+}
 
 
 
