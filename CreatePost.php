@@ -3,6 +3,8 @@
 $username = $_POST["username"];
 $userpost = $_POST["input"];
 
+$userExists = false;
+
 $mysqli = new mysqli("mysql.eecs.ku.edu", "seancunningha", "fohNuph4",
 "seancunningha");
 /* check connection */
@@ -11,8 +13,7 @@ if ($mysqli->connect_errno) {
  exit();
 }
 
-function checkForUser() {
-    global $mysqli;
+function checkForUser($mysqli, $userExists) {
     $userExists = false;
     $query = "SELECT {$username} FROM Users";
 if ($result = $mysqli->query($query)) {
@@ -30,10 +31,9 @@ if ($result = $mysqli->query($query)) {
  /* free result set */
  $result->free();
 }
-return($userExists);
 }
 
-$userExists = checkForUser();
+checkForUser($mysqli, $userExists);
 
 if ($userpost == "" || $userpost == null) {
     echo "Post cannot be blank.\n";
