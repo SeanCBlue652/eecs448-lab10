@@ -26,6 +26,7 @@ if ($result = $mysqli->query($query)) {
  /* free result set */
  $result->free();
 }
+}
 
 if ($userpost == "" || $userpost == null) {
     echo "Post cannot be blank.\n";
