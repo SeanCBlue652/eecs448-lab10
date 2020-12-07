@@ -5,7 +5,7 @@ $userpost = $_POST["input"];
 
 $userExists = false;
 
-$resultset;
+$resultset = "";
 
 $mysqli = new mysqli("mysql.eecs.ku.edu", "seancunningha", "fohNuph4",
 "seancunningha");
@@ -15,19 +15,19 @@ if ($mysqli->connect_errno) {
  exit();
 }
 
-function checkForUser($mysqli, $userExists, $results) {
+function checkForUser($mysqli, $userExists, $resultset) {
     $userExists = false;
     $query = "SELECT * FROM Users";
 if ($result = $mysqli->query($query)) {
  /* fetch associative array */
 
  while ($row = $result->fetch_assoc()) {
-     $results .= $row["user_id"]."\n";
+     $resultset .= $row["user_id"]."\n";
  if ($row["user_id"] == $username) {
         $userExists = true;
  }
  else {
-     printf("not here");
+     printf($row["user_id"]."\n");
  }
 }
  
